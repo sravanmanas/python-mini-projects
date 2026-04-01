@@ -9,7 +9,7 @@ A collection of Python programs built while learning programming fundamentals.
 | 1 | Grade Calculator | Takes student name and marks, calculates percentage and grade |
 | 2 | Number Guessing Game | User guesses a random number with hints (too high/low) |
 ## Author
-**Sravan Manas J P**
+**Sravan Manas J P**  
 B.Tech Computer Science & Engineering  
 M. Dasan Institute of Technology
 
