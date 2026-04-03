@@ -1,6 +1,10 @@
-# Simple CLI To-Do List Application
+# To-Do List with File Persistence
 
-tasks = []
+try :
+    with open("tasks.txt","r") as f:
+        tasks = f.read().splitlines()
+except FileNotFoundError :
+    tasks=[]
 
 # Function to display tasks
 def view_tasks():
@@ -9,7 +13,7 @@ def view_tasks():
     else:
         print("Your Tasks:")
         i = 1
-        for x in tasks:  #can also do, for i,x in enumerate(task,1)
+        for x in tasks:  #can also do, for i,x in enumerate(tasks,1)
             print(i, x)
             i += 1
         print()
@@ -27,7 +31,10 @@ def menu():
 
         # Add Task
         if n == "1":
-            tasks.append(input("Enter task: "))
+            task = input("Enter task: ")
+            tasks.append(task)
+            with open("tasks.txt","a") as f:
+             f.write(task + "\n")
             print("Task added successfully.\n")
 
         # View Tasks
@@ -44,6 +51,9 @@ def menu():
                     delete = int(input("Enter task number to delete: "))
                     if 1 <= delete <= len(tasks):
                         del tasks[delete - 1]
+                        with open("tasks.txt","w") as f:
+                            for task in tasks:
+                                f.write(task+"\n")                        
                         print("Task deleted successfully.\n")
                     else:
                         print("Invalid task number.\n")
