@@ -9,7 +9,19 @@ def generate_password():
     # - lowercase + uppercase letters
     # - digits (0-9)
     # - special symbols
-    symbols = string.ascii_letters + string.digits + string.punctuation
+    symbols = string.ascii_letters
+
+     # Ask user for additional options
+    include_digits = input("Include digits? (y/n): ")
+    include_symbols = input("Include special characters? (y/n): ")
+
+    # Add digits if user chooses yes
+    if include_digits.lower() == "y":
+        symbols += string.digits
+
+    # Add special symbols if user chooses yes
+    if include_symbols.lower() == "y":
+        symbols += string.punctuation
 
     # Take password length from user
     n = int(input("Enter the length of password: "))
